@@ -7,6 +7,7 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.temporal.ChronoUnit;
 
 @Entity
 @Table(name = "traffic_data")
@@ -21,8 +22,11 @@ public class TrafficData {
     @Column(name = "link_id")
     private Long linkId;
 
-    @Column(name = "node_id")
-    private Long nodeId;
+    @Column(name = "start_node_id")
+    private Long startNodeId;
+
+    @Column(name = "end_node_id")
+    private Long endNodeId;
 
     @Column(name = "road_name")
     private String roadName;
@@ -40,8 +44,9 @@ public class TrafficData {
     private Integer roadStatus;
 
     @Column(name = "date")
-    private String date;
+    private OffsetDateTime date;
+
     public void setDate(OffsetDateTime date) {
-        this.date = date.format(DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ssXXX"));
+        this.date = date.truncatedTo(ChronoUnit.SECONDS);
     }
 }

@@ -8,8 +8,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class TrafficRequest {
-    private String minX;
-    private String maxX;
-    private String minY;
-    private String maxY;
+    private Double minX;
+    private Double maxX;
+    private Double minY;
+    private Double maxY;
 }

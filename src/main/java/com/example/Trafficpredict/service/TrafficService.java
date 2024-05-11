@@ -36,10 +36,10 @@ public class TrafficService {
     private TrafficDataRepository trafficDataRepository;
 
     // 임의 좌표
-    private static final String MIN_X = "127.269182";
-    private static final String MAX_X = "127.330568";
-    private static final String MIN_Y = "36.192478";
-    private static final String MAX_Y = "36.297312";
+    private static final Double MIN_X = 127.269182;
+    private static final Double MAX_X = 127.330568;
+    private static final Double MIN_Y = 36.192478;
+    private static final Double MAX_Y = 36.297312;
     private static final String DATABASE_URL = "jdbc:sqlite:src/main/resources/daejeon_links_without_geometry.sqlite";
 
     // 10분 간격으로 실행
@@ -49,9 +49,19 @@ public class TrafficService {
             TrafficRequest request = new TrafficRequest(MIN_X, MAX_X, MIN_Y, MAX_Y);
             callApi(request);
             log.info("Scheduled API call executed successfully.");
+            cleanOldData();
         } catch (Exception e) {
             log.error("Error during scheduled API call: ", e);
         }
+    }
+
+    private void cleanOldData() {
+        // 1시간 이전 데이터 삭제
+        OffsetDateTime oneHourAgo = OffsetDateTime.now().minusHours(1);
+        long countBefore = trafficDataRepository.count();
+        trafficDataRepository.deleteDataOlderThan(oneHourAgo);
+        long countAfter = trafficDataRepository.count();
+        log.info("Old data cleaned up successfully. Before: {}, After: {}", countBefore, countAfter);
     }
 
     private TrafficResponse convertData(JSONObject apiResponse) throws SQLException {
@@ -64,7 +74,7 @@ public class TrafficService {
 
             for (int i = 0; i < items.length(); i++) {
                 JSONObject item = items.getJSONObject(i);
-                Long linkId = item.optLong("linkId", 0L);  // Default to 0 if not found
+                Long linkId = item.optLong("linkId", 0L);
 
                 stmt.setLong(1, linkId);
                 ResultSet rs = stmt.executeQuery();
@@ -77,7 +87,8 @@ public class TrafficService {
 
                     TrafficData data = new TrafficData();
                     data.setLinkId(linkId);
-                    data.setNodeId(item.optLong("startNodeId", 0));
+                    data.setStartNodeId(item.optLong("startNodeId", 0));
+                    data.setEndNodeId(item.optLong("endNodeId", 0));
                     data.setRoadName(rs.getString("road_name"));
                     data.setRoadRank(roadRank);
                     /*data.setGeometry(rs.getString("GEOMETRY"));*/
@@ -100,10 +111,10 @@ public class TrafficService {
         urlBuilder.addQueryParameter("apiKey", itApiProperties.getApiKey())
                 .addQueryParameter("type", "all")
                 .addQueryParameter("drcType", "all")
-                .addQueryParameter("minX", request.getMinX())
-                .addQueryParameter("maxX", request.getMaxX())
-                .addQueryParameter("minY", request.getMinY())
-                .addQueryParameter("maxY", request.getMaxY())
+                .addQueryParameter("minX", String.valueOf(request.getMinX()))
+                .addQueryParameter("maxX", String.valueOf(request.getMaxX()))
+                .addQueryParameter("minY", String.valueOf(request.getMinY()))
+                .addQueryParameter("maxY", String.valueOf(request.getMaxY()))
                 .addQueryParameter("getType", "json");
 
         Request httpRequest = new Request.Builder().url(urlBuilder.build()).build();
