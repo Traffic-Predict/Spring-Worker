@@ -35,11 +35,11 @@ public class TrafficService {
     @Autowired
     private TrafficDataRepository trafficDataRepository;
 
-    // 임의 좌표
+    // 대전 범위
     private static final Double MIN_X = 127.269182;
-    private static final Double MAX_X = 127.330568;
+    private static final Double MAX_X = 127.380568;
     private static final Double MIN_Y = 36.192478;
-    private static final Double MAX_Y = 36.297312;
+    private static final Double MAX_Y = 36.497312;
     private static final String DATABASE_URL = "jdbc:sqlite:src/main/resources/daejeon_links_without_geometry.sqlite";
 
     // 10분 간격으로 실행
