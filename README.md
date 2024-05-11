@@ -1,6 +1,6 @@
 # Spring-Worker
 
-## application.properties
+## src/main/resources/application.properties
 ```spring.application.name=Traffic-predict
 its.apiKey="api key"
 its.apiUrl=https://openapi.its.go.kr:9443/trafficInfo
