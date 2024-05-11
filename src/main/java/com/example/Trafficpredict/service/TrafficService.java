@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.json.JSONObject;
 import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
@@ -34,8 +35,24 @@ public class TrafficService {
     @Autowired
     private TrafficDataRepository trafficDataRepository;
 
+    // 임의 좌표
+    private static final String MIN_X = "127.269182";
+    private static final String MAX_X = "127.330568";
+    private static final String MIN_Y = "36.192478";
+    private static final String MAX_Y = "36.297312";
     private static final String DATABASE_URL = "jdbc:sqlite:src/main/resources/daejeon_links_without_geometry.sqlite";
-    private static final int EXCLUDE_CITY_LEVEL = 8;
+
+    // 10분 간격으로 실행
+    @Scheduled(fixedRate = 600000)
+    public void fetchAndStoreTrafficData() {
+        try {
+            TrafficRequest request = new TrafficRequest(MIN_X, MAX_X, MIN_Y, MAX_Y);
+            callApi(request);
+            log.info("Scheduled API call executed successfully.");
+        } catch (Exception e) {
+            log.error("Error during scheduled API call: ", e);
+        }
+    }
 
     private TrafficResponse convertData(JSONObject apiResponse) throws SQLException {
         JSONArray items = apiResponse.getJSONObject("body").getJSONArray("items");
