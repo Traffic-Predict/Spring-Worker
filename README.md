@@ -2,9 +2,9 @@
 
 ## src/main/resources/application.properties
 ```spring.application.name=Traffic-predict
-its.apiKey="api key"
+its.apiKey=${api key}
 its.apiUrl=https://openapi.its.go.kr:9443/trafficInfo
-app.feOrigin="origin url"
+app.feOrigin=${origin url}
 
 #spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
 
