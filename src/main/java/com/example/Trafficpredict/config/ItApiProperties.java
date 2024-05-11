@@ -1,4 +1,4 @@
-package com.example.Trafficpredict;
+package com.example.Trafficpredict.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;

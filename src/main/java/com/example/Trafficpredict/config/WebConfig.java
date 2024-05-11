@@ -1,4 +1,4 @@
-package com.example.Trafficpredict;
+package com.example.Trafficpredict.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -8,7 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
-    @Value("${app.fe-origin}")
+    @Value("${app.feOrigin}")
     private String frontendOrigin;
 
     @Override

@@ -1,5 +1,6 @@
-package com.example.Trafficpredict;
+package com.example.Trafficpredict.dto;
 
+import com.example.Trafficpredict.model.TrafficData;
 import lombok.Data;
 import java.util.List;
 

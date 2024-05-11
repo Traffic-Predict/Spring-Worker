@@ -1,4 +1,4 @@
-package com.example.Trafficpredict;
+package com.example.Trafficpredict.dto;
 
 import lombok.Data;
 
@@ -8,5 +8,4 @@ public class TrafficRequest {
     private String maxX;
     private String minY;
     private String maxY;
-    private int mapLevel;
 }
