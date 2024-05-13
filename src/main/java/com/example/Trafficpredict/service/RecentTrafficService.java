@@ -6,6 +6,7 @@ import com.example.Trafficpredict.dto.TrafficResponse;
 import com.example.Trafficpredict.model.TrafficData;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import com.example.Trafficpredict.repository.TrafficDataRepository;
 
@@ -19,8 +20,11 @@ public class RecentTrafficService {
     @Autowired
     private TrafficDataRepository trafficDataRepository;
 
-    private static final String NODE_DB_URL = "jdbc:sqlite:src/main/resources/daejeon_node_xy.sqlite";
-    private static final String GEOMETRY_DB_URL = "jdbc:sqlite:src/main/resources/daejeon_links_without_geometry.sqlite";
+    @Value("${node.db.url}")
+    private String NODE_DB_URL;
+
+    @Value("${geometry.db.url}")
+    private String GEOMETRY_DB_URL;
 
     public List<RecentTrafficResponse> findRecentTrafficDataByNodeIds(List<Long> nodeIds) {
         List<TrafficData> dataList = trafficDataRepository.findRecentByNodeIds(nodeIds);
@@ -29,7 +33,7 @@ public class RecentTrafficService {
         // geometry 정보를 추가
         try (Connection conn = DriverManager.getConnection(GEOMETRY_DB_URL)) {
             PreparedStatement pstmt = conn.prepareStatement(
-                    "SELECT link_id, geometry FROM daejeon_link WHERE link_id = ?");
+                    "SELECT link_id, geometry FROM daejeon_link_wgs84 WHERE link_id = ?");
             for (TrafficData data : dataList) {
                 pstmt.setLong(1, data.getLinkId());
                 try (ResultSet rs = pstmt.executeQuery()) {

@@ -9,6 +9,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.json.JSONObject;
 import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import okhttp3.HttpUrl;
@@ -24,9 +25,12 @@ import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.beans.factory.annotation.Value;
+
 
 @Service
 @Slf4j
+@Configuration
 public class TrafficService {
 
     @Autowired
@@ -35,12 +39,14 @@ public class TrafficService {
     @Autowired
     private TrafficDataRepository trafficDataRepository;
 
+    @Value("${geometry.db.url}")
+    private String GEOMETRY_DB_URL;
+
     // 대전 범위
     private static final Double MIN_X = 127.269182;
     private static final Double MAX_X = 127.380568;
     private static final Double MIN_Y = 36.192478;
     private static final Double MAX_Y = 36.497312;
-    private static final String DATABASE_URL = "jdbc:sqlite:src/main/resources/daejeon_links_without_geometry.sqlite";
 
     // 10분 간격으로 실행
     @Scheduled(fixedRate = 600000)
@@ -68,9 +74,9 @@ public class TrafficService {
         JSONArray items = apiResponse.getJSONObject("body").getJSONArray("items");
         List<TrafficData> dataList = new ArrayList<>();
 
-        try (Connection conn = DriverManager.getConnection(DATABASE_URL)) {
+        try (Connection conn = DriverManager.getConnection(GEOMETRY_DB_URL)) {
             PreparedStatement stmt = conn.prepareStatement(
-                    "SELECT GEOMETRY, link_id, road_name, road_rank FROM daejeon_link WHERE link_id = ?");
+                    "SELECT GEOMETRY, link_id, road_name, road_rank FROM daejeon_link_wgs84 WHERE link_id = ?");
 
             for (int i = 0; i < items.length(); i++) {
                 JSONObject item = items.getJSONObject(i);

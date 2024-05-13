@@ -20,14 +20,15 @@ dependencies {
 	implementation 'com.squareup.okhttp3:okhttp:4.9.0'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter'
 	developmentOnly 'org.springframework.boot:spring-boot-devtools'
-	runtimeOnly 'com.mysql:mysql-connector-j'
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	compileOnly 'org.projectlombok:lombok'
 	annotationProcessor 'org.projectlombok:lombok'
 	implementation 'org.xerial:sqlite-jdbc:3.34.0'
 	implementation 'org.json:json:20210307'
-	implementation 'com.h2database:h2'
+	// implementation 'com.h2database:h2'
+	implementation 'mysql:mysql-connector-java:8.0.26'
 }
 
 tasks.named('test') {
