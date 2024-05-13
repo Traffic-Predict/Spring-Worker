@@ -1,3 +1,7 @@
+#Spring -Worker
+
+##src/main/resources.application properties
+```
 spring.application.name=Traffic-predict
 its.apiKey=${api_key}
 its.apiUrl=https://openapi.its.go.kr:9443/trafficInfo
@@ -15,3 +19,4 @@ spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 spring.jpa.database-platform=org.hibernate.dialect.MySQL8Dialect
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
+```
