@@ -21,6 +21,7 @@ import java.io.IOException;
 import java.sql.*;
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
+import java.time.ZoneId;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
@@ -44,7 +45,7 @@ public class TrafficService {
 
     // 대전 범위
     private static final Double MIN_X = 127.269182;
-    private static final Double MAX_X = 127.380568;
+    private static final Double MAX_X = 127.530568;
     private static final Double MIN_Y = 36.192478;
     private static final Double MAX_Y = 36.497312;
 
@@ -99,9 +100,8 @@ public class TrafficService {
                     data.setRoadRank(roadRank);
                     /*data.setGeometry(rs.getString("GEOMETRY"));*/
                     data.setSpeed(item.optDouble("speed", 0.0));
-                    data.setRoadStatus(determineCongestion(roadRank, item.optDouble("speed", 0.0)));
-                    OffsetDateTime nowWithOffset = OffsetDateTime.now(ZoneOffset.of("+09:00"));
-                    data.setDate(nowWithOffset);
+                    data.setRoadStatus(determineCongestion(roadRank, item.optDouble("speed", 0.0)));;
+                    data.setDate(OffsetDateTime.now(ZoneId.of("Asia/Seoul")));
                     dataList.add(data);
                 }
             }

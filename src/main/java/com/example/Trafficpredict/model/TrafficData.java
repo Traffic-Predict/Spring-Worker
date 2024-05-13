@@ -43,10 +43,7 @@ public class TrafficData {
     @Column(name = "road_status")
     private Integer roadStatus;
 
-    @Column(name = "date")
+    @Column(name = "date", columnDefinition = "TIMESTAMP")
     private OffsetDateTime date;
 
-    public void setDate(OffsetDateTime date) {
-        this.date = date.truncatedTo(ChronoUnit.SECONDS);
-    }
 }

@@ -12,7 +12,9 @@ import com.example.Trafficpredict.repository.TrafficDataRepository;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @Service
 @Slf4j
@@ -27,14 +29,21 @@ public class RecentTrafficService {
     private String GEOMETRY_DB_URL;
 
     public List<RecentTrafficResponse> findRecentTrafficDataByNodeIds(List<Long> nodeIds) {
-        List<TrafficData> dataList = trafficDataRepository.findRecentByNodeIds(nodeIds);
+        List<TrafficData> allData = trafficDataRepository.findRecentByNodeIds(nodeIds);
+        Map<Long, TrafficData> latestData = new HashMap<>();
+        for (TrafficData data : allData) {
+            latestData.compute(data.getLinkId(), (key, current) -> current == null ||
+                    data.getDate().isAfter(current.getDate()) ? data : current);
+        }
+        List<TrafficData> filteredData = new ArrayList<>(latestData.values());
+
         List<RecentTrafficResponse> responseList = new ArrayList<>();
 
         // geometry 정보를 추가
         try (Connection conn = DriverManager.getConnection(GEOMETRY_DB_URL)) {
             PreparedStatement pstmt = conn.prepareStatement(
                     "SELECT link_id, geometry FROM daejeon_link_wgs84 WHERE link_id = ?");
-            for (TrafficData data : dataList) {
+            for (TrafficData data : filteredData) {
                 pstmt.setLong(1, data.getLinkId());
                 try (ResultSet rs = pstmt.executeQuery()) {
                     if (rs.next()) {
