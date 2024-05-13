@@ -1,23 +1,17 @@
-# Spring-Worker
-
-## src/main/resources/application.properties
-```spring.application.name=Traffic-predict
-its.apiKey=${api key}
+spring.application.name=Traffic-predict
+its.apiKey=${api_key}
 its.apiUrl=https://openapi.its.go.kr:9443/trafficInfo
-app.feOrigin=${origin url}
+app.feOrigin=${frontend_origin}
+node.db.url=jdbc:sqlite:sqlite/daejeon_node_xy.sqlite
+geometry.db.url=jdbc:sqlite:sqlite/daejeon_link_with_wgs84.sqlite
 
-#spring.autoconfigure.exclude=org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
-
-
-# H2 Database
-spring.datasource.url=jdbc:h2:mem:testdb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
-spring.datasource.driverClassName=org.h2.Driver
-spring.datasource.username=sa
-spring.datasource.password=
+# MYSQL Database
+spring.datasource.url=jdbc:mysql://${endpoint}:3306/${database_name}
+spring.datasource.username=${mysql_username}
+spring.datasource.password=${mysql_password}
+spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
 
 # JPA
-spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+spring.jpa.database-platform=org.hibernate.dialect.MySQL8Dialect
 spring.jpa.hibernate.ddl-auto=update
 spring.jpa.show-sql=true
-spring.h2.console.enabled=true
-```
