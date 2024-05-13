@@ -1,6 +1,7 @@
 # Spring -Worker
 
-## src/main/resources.application properties
+## src/main/resources/application properties
+### for mysql
 ```
 spring.application.name=Traffic-predict
 its.apiKey=${api_key}
