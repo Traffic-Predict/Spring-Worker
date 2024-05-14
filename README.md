@@ -10,7 +10,7 @@ node.db.url=jdbc:sqlite:sqlite/daejeon_node_xy.sqlite
 geometry.db.url=jdbc:sqlite:sqlite/daejeon_link_with_wgs84.sqlite
 
 # MYSQL Database
-spring.datasource.url=jdbc:mysql://${endpoint}:3306/${database_name}
+spring.datasource.url=${database_url}
 spring.datasource.username=${mysql_username}
 spring.datasource.password=${mysql_password}
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
