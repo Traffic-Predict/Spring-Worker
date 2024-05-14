@@ -5,6 +5,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.OffsetDateTime;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 
 @Getter
 @Setter
@@ -29,7 +31,10 @@ public class RecentTrafficResponse {
         this.roadRank = data.getRoadRank();
         this.speed = data.getSpeed();
         this.roadStatus = data.getRoadStatus();
-        this.date = data.getDate().toString();
         this.geometry = geometry;
+
+        OffsetDateTime koreaTime = data.getDate().withOffsetSameInstant(ZoneOffset.ofHours(9));
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ssXXX");
+        this.date = koreaTime.format(formatter);
     }
 }
