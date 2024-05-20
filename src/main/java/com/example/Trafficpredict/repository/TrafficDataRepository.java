@@ -20,4 +20,7 @@ public interface TrafficDataRepository extends CrudRepository<TrafficData, Long>
     void deleteDataOlderThan(OffsetDateTime cutoff);
     @Query("SELECT td FROM TrafficData td WHERE td.startNodeId IN :nodeIds OR td.endNodeId IN :nodeIds ORDER BY td.date DESC")
     List<TrafficData> findRecentByNodeIds(@Param("nodeIds") List<Long> nodeIds);
+
+    @Query("SELECT t FROM TrafficData t ORDER BY t.date DESC")
+    List<TrafficData> findAllOrderByDateDesc();
 }

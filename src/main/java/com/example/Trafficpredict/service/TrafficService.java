@@ -6,19 +6,19 @@ import com.example.Trafficpredict.dto.TrafficResponse;
 import com.example.Trafficpredict.model.TrafficData;
 import com.example.Trafficpredict.repository.TrafficDataRepository;
 import lombok.extern.slf4j.Slf4j;
+import okhttp3.*;
 import org.json.JSONObject;
 import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.Cache;
+import org.springframework.cache.CacheManager;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
-import okhttp3.HttpUrl;
-import okhttp3.OkHttpClient;
-import okhttp3.Request;
-import okhttp3.Response;
 
 import java.io.IOException;
 import java.sql.*;
+import java.sql.Connection;
 import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
 import java.time.ZoneId;
@@ -36,10 +36,8 @@ public class TrafficService {
 
     @Autowired
     private ItApiProperties itApiProperties;
-
     @Autowired
     private TrafficDataRepository trafficDataRepository;
-
     @Value("${geometry.db.url}")
     private String GEOMETRY_DB_URL;
 

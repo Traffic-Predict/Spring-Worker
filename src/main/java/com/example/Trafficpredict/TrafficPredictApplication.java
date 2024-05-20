@@ -4,6 +4,7 @@ import com.example.Trafficpredict.config.ItApiProperties;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
@@ -11,6 +12,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableConfigurationProperties(ItApiProperties.class)
 @EnableJpaRepositories(basePackages = "com.example.Trafficpredict.repository")
 @EnableScheduling
+@EnableCaching
 public class TrafficPredictApplication {
 
 	public static void main(String[] args) {
