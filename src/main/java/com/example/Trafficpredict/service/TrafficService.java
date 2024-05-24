@@ -106,6 +106,7 @@ public class TrafficService {
 
     @Transactional(readOnly = true)
     public List<TrafficResponse> findRecentTrafficDataByNodeIds(TrafficRequest request, List<Long> nodeIds) {
+        log.info("Processing findRecentTrafficDataByNodeIds in thread: " + Thread.currentThread().getName());
         Cache cache = cacheManager.getCache("trafficDataCache");
         List<TrafficResponse> responseList = new ArrayList<>();
 
@@ -120,6 +121,7 @@ public class TrafficService {
                 }
             }
         }
+        log.info("findRecentTrafficDataByNodeIds processed successfully in thread: " + Thread.currentThread().getName());
         return responseList;
     }
 

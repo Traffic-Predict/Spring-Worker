@@ -58,6 +58,7 @@ public class ITSService {
     @Async("taskExecutor")
     public void fetchAndStoreTrafficData() {
         try {
+            log.info("fetchAndStoreTrafficData started in thread: " + Thread.currentThread().getName());
             ITSRequest request = new ITSRequest(MIN_X, MAX_X, MIN_Y, MAX_Y);
             callApi(request);
             log.info("Scheduled API call executed successfully.");
@@ -146,7 +147,8 @@ public class ITSService {
     public void storeData(ITSResponse ITSResponse) {
         List<TrafficData> items = ITSResponse.getItems();
 
-        log.info("Batch processing started. Total items to process: {}", items.size());
+        //log.info("Batch processing started. Total items to process: {}", items.size());
+        log.info("Batch processing started in thread: " + Thread.currentThread().getName() + ". Total items to process: " + items.size());
 
         for (int i = 0; i < items.size(); i += batchSize) {
             int end = Math.min(items.size(), i + batchSize);
