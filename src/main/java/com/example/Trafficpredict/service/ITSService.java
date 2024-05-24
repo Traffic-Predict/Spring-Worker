@@ -11,8 +11,10 @@ import org.json.JSONObject;
 import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
 import java.sql.*;
@@ -23,6 +25,8 @@ import java.util.ArrayList;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Value;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
 
 @Service
 @Slf4j
@@ -36,6 +40,12 @@ public class ITSService {
     @Value("${geometry.db.url}")
     private String GEOMETRY_DB_URL;
 
+    @PersistenceContext
+    private EntityManager entityManager;
+
+    @Value("${batch.size}")
+    private int batchSize;
+
     // 대전 범위
     private static final Double MIN_X = 127.269182;
     private static final Double MAX_X = 127.530568;
@@ -44,6 +54,8 @@ public class ITSService {
 
     // 10분 간격으로 실행
     @Scheduled(fixedRate = 600000)
+    @Transactional
+    @Async("taskExecutor")
     public void fetchAndStoreTrafficData() {
         try {
             ITSRequest request = new ITSRequest(MIN_X, MAX_X, MIN_Y, MAX_Y);
@@ -55,7 +67,8 @@ public class ITSService {
         }
     }
 
-    private void cleanOldData() {
+    @Transactional
+    public void cleanOldData() {
         // 1시간 이전 데이터 삭제
         OffsetDateTime oneHourAgo = OffsetDateTime.now().minusHours(1);
         long countBefore = trafficDataRepository.count();
@@ -64,7 +77,8 @@ public class ITSService {
         log.info("Old data cleaned up successfully. Before: {}, After: {}", countBefore, countAfter);
     }
 
-    private ITSResponse convertData(JSONObject apiResponse) throws SQLException {
+    @Transactional
+    public ITSResponse convertData(JSONObject apiResponse) throws SQLException {
         JSONArray items = apiResponse.getJSONObject("body").getJSONArray("items");
         List<TrafficData> dataList = new ArrayList<>();
 
@@ -93,7 +107,7 @@ public class ITSService {
                     data.setRoadRank(roadRank);
                     /*data.setGeometry(rs.getString("GEOMETRY"));*/
                     data.setSpeed(item.optDouble("speed", 0.0));
-                    data.setRoadStatus(determineCongestion(roadRank, item.optDouble("speed", 0.0)));;
+                    data.setRoadStatus(determineCongestion(roadRank, item.optDouble("speed", 0.0)));
                     data.setDate(OffsetDateTime.now(ZoneId.of("Asia/Seoul")));
                     dataList.add(data);
                 }
@@ -104,6 +118,7 @@ public class ITSService {
         return ITSResponse;
     }
 
+    @Transactional
     public void callApi(ITSRequest request) throws IOException, SQLException {
         OkHttpClient client = new OkHttpClient();
         HttpUrl.Builder urlBuilder = HttpUrl.parse(itApiProperties.getApiUrl()).newBuilder();
@@ -127,11 +142,22 @@ public class ITSService {
         }
     }
 
+    @Transactional
+    public void storeData(ITSResponse ITSResponse) {
+        List<TrafficData> items = ITSResponse.getItems();
 
-    private void storeData(ITSResponse ITSResponse) {
-        for (TrafficData data : ITSResponse.getItems()) {
-            trafficDataRepository.save(data);
+        log.info("Batch processing started. Total items to process: {}", items.size());
+
+        for (int i = 0; i < items.size(); i += batchSize) {
+            int end = Math.min(items.size(), i + batchSize);
+            List<TrafficData> batchList = items.subList(i, end);
+            trafficDataRepository.saveAll(batchList);
+            entityManager.flush();
+            entityManager.clear();
+            log.info("Processed batch from index {} to {}. Batch size: {}", i, end - 1, batchList.size());
         }
+
+        log.info("Batch processing completed. Total items processed: {}", items.size());
     }
 
     private int determineCongestion(String roadRank, double speed) {

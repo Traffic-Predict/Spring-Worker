@@ -3,11 +3,10 @@ package com.example.Trafficpredict.model;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 
-import java.time.LocalDateTime;
 import java.time.OffsetDateTime;
-import java.time.format.DateTimeFormatter;
-import java.time.temporal.ChronoUnit;
 
 @Entity
 @Table(name = "traffic_data")
@@ -16,7 +15,8 @@ import java.time.temporal.ChronoUnit;
 public class TrafficData {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "traffic_data_seq")
+    @SequenceGenerator(name = "traffic_data_seq", sequenceName = "traffic_data_seq", allocationSize = 200)
     private Long id;
 
     @Column(name = "link_id")
@@ -34,9 +34,6 @@ public class TrafficData {
     @Column(name = "road_rank")
     private String roadRank;
 
-/*    @Column(name = "geometry")
-    private String geometry;*/
-
     @Column(name = "speed")
     private Double speed;
 
@@ -45,5 +42,4 @@ public class TrafficData {
 
     @Column(name = "date", columnDefinition = "TIMESTAMP")
     private OffsetDateTime date;
-
 }

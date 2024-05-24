@@ -11,6 +11,7 @@ import org.springframework.cache.CacheManager;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import com.example.Trafficpredict.repository.TrafficDataRepository;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.sql.*;
 import java.util.*;
@@ -83,6 +84,7 @@ public class TrafficService {
 
     // 5분마다 캐시 업데이트
     @Scheduled(fixedRate = 300000)
+    @Transactional
     public void updateCache() {
         List<TrafficData> allData = trafficDataRepository.findAllOrderByDateDesc();
         Cache cache = cacheManager.getCache("trafficDataCache");
@@ -102,6 +104,7 @@ public class TrafficService {
         }
     }
 
+    @Transactional(readOnly = true)
     public List<TrafficResponse> findRecentTrafficDataByNodeIds(TrafficRequest request, List<Long> nodeIds) {
         Cache cache = cacheManager.getCache("trafficDataCache");
         List<TrafficResponse> responseList = new ArrayList<>();
