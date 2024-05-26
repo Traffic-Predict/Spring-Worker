@@ -42,4 +42,18 @@ public class TrafficData {
 
     @Column(name = "date", columnDefinition = "TIMESTAMP")
     private OffsetDateTime date;
+
+
+    //date 필드를 5분 단위로 끊어서 저장
+    @PrePersist
+    public void onPrePersist() {
+        this.date = truncateToFiveMinutes(this.date);
+    }
+
+    private OffsetDateTime truncateToFiveMinutes(OffsetDateTime dateTime) {
+        int minute = dateTime.getMinute();
+        int truncatedMinute = (minute / 5) * 5;
+        return dateTime.withMinute(truncatedMinute).withSecond(0).withNano(0);
+    }
+
 }
