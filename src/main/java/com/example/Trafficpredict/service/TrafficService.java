@@ -83,7 +83,7 @@ public class TrafficService {
     }
 
     // 5분마다 캐시 업데이트
-    @Scheduled(fixedRate = 300000)
+/*    @Scheduled(fixedRate = 300000)
     @Transactional
     public void updateCache() {
         List<TrafficData> allData = trafficDataRepository.findAllOrderByDateDesc();
@@ -102,7 +102,7 @@ public class TrafficService {
             }
             log.info("Cache updated with the most recent traffic data.");
         }
-    }
+    }*/
 
     @Transactional(readOnly = true)
     public List<TrafficResponse> findRecentTrafficDataByNodeIds(TrafficRequest request, List<Long> nodeIds) {

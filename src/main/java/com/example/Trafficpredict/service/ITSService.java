@@ -10,6 +10,8 @@ import okhttp3.*;
 import org.json.JSONObject;
 import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.Cache;
+import org.springframework.cache.CacheManager;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
@@ -22,7 +24,10 @@ import java.sql.Connection;
 import java.time.OffsetDateTime;
 import java.time.ZoneId;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
+
 import org.springframework.beans.factory.annotation.Value;
 
 import jakarta.persistence.EntityManager;
@@ -46,14 +51,17 @@ public class ITSService {
     @Value("${batch.size}")
     private int batchSize;
 
+    @Autowired
+    private CacheManager cacheManager;
+
     // 대전 범위
     private static final Double MIN_X = 127.269182;
     private static final Double MAX_X = 127.530568;
     private static final Double MIN_Y = 36.192478;
     private static final Double MAX_Y = 36.497312;
 
-    // 10분 간격으로 실행
-    @Scheduled(fixedRate = 600000)
+    // 5분 간격으로 실행
+    @Scheduled(fixedRate = 300000)
     @Transactional
     @Async("taskExecutor")
     public void fetchAndStoreTrafficData() {
@@ -62,6 +70,7 @@ public class ITSService {
             ITSRequest request = new ITSRequest(MIN_X, MAX_X, MIN_Y, MAX_Y);
             callApi(request);
             log.info("Scheduled API call executed successfully.");
+            updateCache();
             cleanOldData();
         } catch (Exception e) {
             log.error("Error during scheduled API call: ", e);
@@ -70,8 +79,8 @@ public class ITSService {
 
     @Transactional
     public void cleanOldData() {
-        // 1시간 이전 데이터 삭제
-        OffsetDateTime oneHourAgo = OffsetDateTime.now().minusHours(1);
+        // 24시간 이전 데이터 삭제
+        OffsetDateTime oneHourAgo = OffsetDateTime.now().minusHours(24);
         long countBefore = trafficDataRepository.count();
         trafficDataRepository.deleteDataOlderThan(oneHourAgo);
         long countAfter = trafficDataRepository.count();
@@ -144,6 +153,26 @@ public class ITSService {
     }
 
     @Transactional
+    public void updateCache() {
+        List<TrafficData> allData = trafficDataRepository.findAllOrderByDateDesc();
+        Cache cache = cacheManager.getCache("trafficDataCache");
+        Set<Long> updatedLinkIds = new HashSet<>();
+
+        if (cache != null) {
+            for (TrafficData data : allData) {
+                if (!updatedLinkIds.contains(data.getLinkId())) {
+                    cache.put(data.getLinkId(), data);
+                    updatedLinkIds.add(data.getLinkId());
+                }
+                else{
+                    break;
+                }
+            }
+            log.info("Cache updated with the most recent traffic data.");
+        }
+    }
+
+    @Transactional
     public void storeData(ITSResponse ITSResponse) {
         List<TrafficData> items = ITSResponse.getItems();
 
@@ -171,4 +200,5 @@ public class ITSService {
             default -> 0;
         };
     }
+
 }
