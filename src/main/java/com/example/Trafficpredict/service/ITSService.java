@@ -7,8 +7,12 @@ import com.example.Trafficpredict.model.TrafficData;
 import com.example.Trafficpredict.repository.TrafficDataRepository;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;
-import org.json.JSONObject;
+import org.apache.commons.csv.CSVFormat;
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVPrinter;
+import org.apache.commons.csv.CSVRecord;
 import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
@@ -17,16 +21,20 @@ import org.springframework.scheduling.annotation.Async;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.client.RestTemplate;
 
 import java.io.IOException;
+import java.io.StringReader;
+import java.io.StringWriter;
 import java.sql.*;
 import java.sql.Connection;
 import java.time.OffsetDateTime;
 import java.time.ZoneId;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 import org.springframework.beans.factory.annotation.Value;
 
@@ -54,6 +62,9 @@ public class ITSService {
     @Autowired
     private CacheManager cacheManager;
 
+    @Autowired
+    private RestTemplate restTemplate;
+
     // 대전 범위
     private static final Double MIN_X = 127.269182;
     private static final Double MAX_X = 127.530568;
@@ -71,7 +82,9 @@ public class ITSService {
             callApi(request);
             log.info("Scheduled API call executed successfully.");
             updateCache();
+            processTrafficData();
             cleanOldData();
+
         } catch (Exception e) {
             log.error("Error during scheduled API call: ", e);
         }
@@ -115,7 +128,6 @@ public class ITSService {
                     data.setEndNodeId(item.optLong("endNodeId", 0));
                     data.setRoadName(rs.getString("road_name"));
                     data.setRoadRank(roadRank);
-                    /*data.setGeometry(rs.getString("GEOMETRY"));*/
                     data.setSpeed(item.optDouble("speed", 0.0));
                     data.setRoadStatus(determineCongestion(roadRank, item.optDouble("speed", 0.0)));
                     data.setDate(OffsetDateTime.now(ZoneId.of("Asia/Seoul")));
@@ -154,19 +166,12 @@ public class ITSService {
 
     @Transactional
     public void updateCache() {
-        List<TrafficData> allData = trafficDataRepository.findAllOrderByDateDesc();
+        List<TrafficData> recentData = getRecentTrafficData();
         Cache cache = cacheManager.getCache("trafficDataCache");
-        Set<Long> updatedLinkIds = new HashSet<>();
 
         if (cache != null) {
-            for (TrafficData data : allData) {
-                if (!updatedLinkIds.contains(data.getLinkId())) {
-                    cache.put(data.getLinkId(), data);
-                    updatedLinkIds.add(data.getLinkId());
-                }
-                else{
-                    break;
-                }
+            for (TrafficData data : recentData) {
+                cache.put(data.getLinkId(), data);
             }
             log.info("Cache updated with the most recent traffic data.");
         }
@@ -176,7 +181,6 @@ public class ITSService {
     public void storeData(ITSResponse ITSResponse) {
         List<TrafficData> items = ITSResponse.getItems();
 
-        //log.info("Batch processing started. Total items to process: {}", items.size());
         log.info("Batch processing started in thread: " + Thread.currentThread().getName() + ". Total items to process: " + items.size());
 
         for (int i = 0; i < items.size(); i += batchSize) {
@@ -199,6 +203,64 @@ public class ITSService {
             case "104" -> speed <= 15 ? 3 : speed <= 30 ? 2 : 1;
             default -> 0;
         };
+    }
+
+    // 실시간 데이터를 기반으로 AI 예측 수행
+    @Transactional
+    public void processTrafficData() {
+        // DB에서 가장 최근의 트래픽 데이터를 가져옴
+        List<TrafficData> recentTrafficData = getRecentTrafficData();
+        String csvData = convertToCsv(recentTrafficData);
+
+        log.info("Converted CSV Data:\n" + csvData);
+
+        // CSV 데이터를 AI 예측 서버로 전송
+        String predictionEndpoint = "http://localhost:5000/predict";
+        //String predictionResponse = sendCsvForPrediction(csvData, predictionEndpoint);
+
+    }
+
+    private List<TrafficData> getRecentTrafficData() {
+        List<TrafficData> allData = trafficDataRepository.findAllOrderByDateDesc();
+        Set<Long> processedLinkIds = new HashSet<>();
+        List<TrafficData> recentData = new ArrayList<>();
+
+        for (TrafficData data : allData) {
+            if (!processedLinkIds.contains(data.getLinkId())) {
+                recentData.add(data);
+                processedLinkIds.add(data.getLinkId());
+            } else {
+                break;
+            }
+        }
+        return recentData;
+    }
+
+    private String convertToCsv(List<TrafficData> trafficDataList) {
+        try {
+            StringWriter writer = new StringWriter();
+            CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT.withHeader("linkId", "startNodeId", "endNodeId", "roadName", "roadRank", "speed", "roadStatus", "date"));
+
+            for (TrafficData data : trafficDataList) {
+                csvPrinter.printRecord(data.getLinkId(), data.getStartNodeId(), data.getEndNodeId(), data.getRoadName(), data.getRoadRank(), data.getSpeed(), data.getRoadStatus(), data.getDate());
+            }
+
+            csvPrinter.flush();
+            return writer.toString();
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private String sendCsvForPrediction(String csvData, String url) {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.TEXT_PLAIN);
+
+        HttpEntity<String> requestEntity = new HttpEntity<>(csvData, headers);
+
+        ResponseEntity<String> response = restTemplate.postForEntity(url, requestEntity, String.class);
+        return response.getBody();
     }
 
 }

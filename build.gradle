@@ -30,6 +30,7 @@ dependencies {
 	//implementation 'com.h2database:h2'
 	implementation 'mysql:mysql-connector-java:8.0.26'
 	implementation 'org.springframework.boot:spring-boot-starter-cache'
+	implementation 'org.apache.commons:commons-csv:1.8'
 }
 
 tasks.named('test') {
