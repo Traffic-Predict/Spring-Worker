@@ -23,8 +23,7 @@ public class TrafficController {
     @PostMapping("/recent")
     public ResponseEntity<GenericResponseWrapper<TrafficResponse>> getRecentTraffic(@RequestBody TrafficRequest request) {
         log.info("Received /recent request in thread: " + Thread.currentThread().getName());
-        List<Long> nodeIds = trafficService.findNodeIdsInArea(request.getMinX(), request.getMaxX(), request.getMinY(), request.getMaxY());
-        List<TrafficResponse> responses = trafficService.findRecentTrafficDataByNodeIds(request, nodeIds);
+        List<TrafficResponse> responses = trafficService.findRecentTrafficData(request);
         GenericResponseWrapper<TrafficResponse> wrappedResponse = new GenericResponseWrapper<>(responses);
         log.info("/recent request processed successfully in thread: " + Thread.currentThread().getName());
         return ResponseEntity.ok(wrappedResponse);

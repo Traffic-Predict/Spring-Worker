@@ -1,10 +1,13 @@
 package com.example.Trafficpredict.service;
 
 import com.example.Trafficpredict.config.ItApiProperties;
+import com.example.Trafficpredict.dto.CachedTrafficData;
 import com.example.Trafficpredict.dto.ITSRequest;
 import com.example.Trafficpredict.dto.ITSResponse;
+import com.example.Trafficpredict.dto.TrafficResponse;
 import com.example.Trafficpredict.model.TrafficData;
 import com.example.Trafficpredict.repository.TrafficDataRepository;
+import com.mysql.cj.protocol.Resultset;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;
 import org.apache.commons.csv.CSVFormat;
@@ -34,7 +37,10 @@ import java.sql.*;
 import java.sql.Connection;
 import java.time.OffsetDateTime;
 import java.time.ZoneId;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
+import java.util.concurrent.CompletableFuture;
 
 import org.springframework.beans.factory.annotation.Value;
 
@@ -50,6 +56,10 @@ public class ITSService {
     private ItApiProperties itApiProperties;
     @Autowired
     private TrafficDataRepository trafficDataRepository;
+
+    @Value("${node.db.url}")
+    private String NODE_DB_URL;
+
     @Value("${geometry.db.url}")
     private String GEOMETRY_DB_URL;
 
@@ -93,9 +103,9 @@ public class ITSService {
     @Transactional
     public void cleanOldData() {
         // 24시간 이전 데이터 삭제
-        OffsetDateTime oneHourAgo = OffsetDateTime.now().minusHours(24);
+        OffsetDateTime nHourAgo = OffsetDateTime.now().minusHours(24);
         long countBefore = trafficDataRepository.count();
-        trafficDataRepository.deleteDataOlderThan(oneHourAgo);
+        trafficDataRepository.deleteDataOlderThan(nHourAgo);
         long countAfter = trafficDataRepository.count();
         log.info("Old data cleaned up successfully. Before: {}, After: {}", countBefore, countAfter);
     }
@@ -106,39 +116,43 @@ public class ITSService {
         List<TrafficData> dataList = new ArrayList<>();
 
         try (Connection conn = DriverManager.getConnection(GEOMETRY_DB_URL)) {
-            PreparedStatement stmt = conn.prepareStatement(
-                    "SELECT GEOMETRY, link_id, road_name, road_rank FROM daejeon_link_wgs84 WHERE link_id = ?");
-
             for (int i = 0; i < items.length(); i++) {
                 JSONObject item = items.getJSONObject(i);
-                Long linkId = item.optLong("linkId", 0L);
+                String linkId = item.optString("linkId", "0");
 
-                stmt.setLong(1, linkId);
-                ResultSet rs = stmt.executeQuery();
+                String roadRank = getRoadRankByLinkId(conn, linkId);
 
-                while (rs.next()) {
-                    String roadRank = rs.getString("road_rank");
-                    if (roadRank.matches("105|106|107")) {
-                        continue;
-                    }
-
-                    TrafficData data = new TrafficData();
-                    data.setLinkId(linkId);
-                    data.setStartNodeId(item.optLong("startNodeId", 0));
-                    data.setEndNodeId(item.optLong("endNodeId", 0));
-                    data.setRoadName(rs.getString("road_name"));
-                    data.setRoadRank(roadRank);
-                    data.setSpeed(item.optDouble("speed", 0.0));
-                    data.setRoadStatus(determineCongestion(roadRank, item.optDouble("speed", 0.0)));
-                    data.setDate(OffsetDateTime.now(ZoneId.of("Asia/Seoul")));
-                    dataList.add(data);
+                if (!roadRank.matches("101|102|103|104")) {
+                    continue;
                 }
+
+                TrafficData data = new TrafficData();
+                data.setLinkId(linkId);
+                data.setSpeed(item.optDouble("speed", 0.0));
+                data.setDate(OffsetDateTime.now(ZoneId.of("Asia/Seoul")));
+                dataList.add(data);
             }
         }
+
         ITSResponse ITSResponse = new ITSResponse();
         ITSResponse.setItems(dataList);
         return ITSResponse;
     }
+
+    private String getRoadRankByLinkId(Connection conn, String linkId) throws SQLException {
+        String roadRank = "0";
+        String query = "SELECT road_rank FROM daejeon_link_wgs84 WHERE link_id = ?";
+        try (PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, linkId);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    roadRank = rs.getString("road_rank");
+                }
+            }
+        }
+        return roadRank;
+    }
+
 
     @Transactional
     public void callApi(ITSRequest request) throws IOException, SQLException {
@@ -170,9 +184,21 @@ public class ITSService {
         Cache cache = cacheManager.getCache("trafficDataCache");
 
         if (cache != null) {
+            List<CompletableFuture<Void>> futures = new ArrayList<>();
+
             for (TrafficData data : recentData) {
-                cache.put(data.getLinkId(), data);
+                CompletableFuture<Void> future = CompletableFuture.runAsync(() -> {
+                    try {
+                        CachedTrafficData cachedData = fetchInfoFromSqlite(data);
+                        cache.put(data.getLinkId(), cachedData);
+                    } catch (SQLException e) {
+                        log.error("Error updating cache: ", e);
+                    }
+                });
+                futures.add(future);
             }
+
+            CompletableFuture.allOf(futures.toArray(new CompletableFuture[0])).join();
             log.info("Cache updated with the most recent traffic data.");
         }
     }
@@ -205,6 +231,68 @@ public class ITSService {
         };
     }
 
+    private CachedTrafficData fetchInfoFromSqlite(TrafficData data) throws SQLException {
+        CachedTrafficData cachedData = new CachedTrafficData();
+        try(Connection conn = DriverManager.getConnection(GEOMETRY_DB_URL)){
+            PreparedStatement stmt = conn.prepareStatement(
+                    "SELECT road_name, road_rank, f_node, t_node, GEOMETRY FROM daejeon_link_wgs84 WHERE link_id = ?"
+            );
+            stmt.setString(1, data.getLinkId());
+            ResultSet rs = stmt.executeQuery();
+
+            if(rs.next()){
+                String roadRank = rs.getString("road_rank");
+                Double speed = data.getSpeed();
+                String startNodeId = rs.getString("f_node");
+                String endNodeId = rs.getString("t_node");
+
+                cachedData.setId(data.getId());
+                cachedData.setLinkId(data.getLinkId());
+                cachedData.setSpeed(speed);
+                cachedData.setStartNodeId(startNodeId);
+                cachedData.setEndNodeId(endNodeId);
+                cachedData.setRoadName(rs.getString("road_name"));
+                cachedData.setRoadRank(rs.getString("road_rank"));
+                cachedData.setGeometry(rs.getString("GEOMETRY"));
+
+                double[] startCoords = getNodeCoordinates(startNodeId);
+                cachedData.setStartX(startCoords[0]);
+                cachedData.setStartY(startCoords[1]);
+
+                double[] endCoords = getNodeCoordinates(endNodeId);
+                cachedData.setEndX(endCoords[0]);
+                cachedData.setEndY(endCoords[1]);
+
+                cachedData.setRoadStatus(determineCongestion(roadRank, speed));
+
+                OffsetDateTime koreaTime = data.getDate().withOffsetSameInstant(ZoneOffset.ofHours(9));
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ssXXX");
+                cachedData.setDate(koreaTime.format(formatter));
+            }
+        }
+        catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return cachedData;
+    }
+
+    private double[] getNodeCoordinates(String nodeId) throws SQLException {
+        double[] coordinates = new double[2];
+        String query = "SELECT x, y FROM daejeon_node_xy WHERE node_id = ?";
+        try (Connection conn = DriverManager.getConnection(NODE_DB_URL);
+             PreparedStatement pstmt = conn.prepareStatement(query)) {
+            pstmt.setString(1, nodeId);
+            try (ResultSet rs = pstmt.executeQuery()) {
+                if (rs.next()) {
+                    coordinates[0] = rs.getDouble("x");
+                    coordinates[1] = rs.getDouble("y");
+                }
+            }
+        }
+        return coordinates;
+    }
+
     // 실시간 데이터를 기반으로 AI 예측 수행
     @Transactional
     public void processTrafficData() {
@@ -222,7 +310,7 @@ public class ITSService {
 
     private List<TrafficData> getRecentTrafficData() {
         List<TrafficData> allData = trafficDataRepository.findAllOrderByDateDesc();
-        Set<Long> processedLinkIds = new HashSet<>();
+        Set<String> processedLinkIds = new HashSet<>();
         List<TrafficData> recentData = new ArrayList<>();
 
         for (TrafficData data : allData) {
@@ -239,10 +327,10 @@ public class ITSService {
     private String convertToCsv(List<TrafficData> trafficDataList) {
         try {
             StringWriter writer = new StringWriter();
-            CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT.withHeader("linkId", "startNodeId", "endNodeId", "roadName", "roadRank", "speed", "roadStatus", "date"));
+            CSVPrinter csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT.withHeader("linkId","speed", "date"));
 
             for (TrafficData data : trafficDataList) {
-                csvPrinter.printRecord(data.getLinkId(), data.getStartNodeId(), data.getEndNodeId(), data.getRoadName(), data.getRoadRank(), data.getSpeed(), data.getRoadStatus(), data.getDate());
+                csvPrinter.printRecord(data.getLinkId(), data.getSpeed(), data.getDate());
             }
 
             csvPrinter.flush();

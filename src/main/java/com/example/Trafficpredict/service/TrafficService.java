@@ -1,19 +1,17 @@
 package com.example.Trafficpredict.service;
 
+import com.example.Trafficpredict.dto.CachedTrafficData;
 import com.example.Trafficpredict.dto.TrafficRequest;
 import com.example.Trafficpredict.dto.TrafficResponse;
-import com.example.Trafficpredict.model.TrafficData;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cache.Cache;
 import org.springframework.cache.CacheManager;
-import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import com.example.Trafficpredict.repository.TrafficDataRepository;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.sql.*;
 import java.util.*;
 
 @Service
@@ -31,112 +29,47 @@ public class TrafficService {
     @Value("${geometry.db.url}")
     private String GEOMETRY_DB_URL;
 
-/*    public List<RecentTrafficResponse> findRecentTrafficDataByNodeIds(List<Long> nodeIds) {
-        List<TrafficData> allData = trafficDataRepository.findRecentByNodeIds(nodeIds);
-        Map<Long, TrafficData> latestData = new HashMap<>();
-        for (TrafficData data : allData) {
-            latestData.compute(data.getLinkId(), (key, current) -> current == null ||
-                    data.getDate().isAfter(current.getDate()) ? data : current);
-        }
-        List<TrafficData> filteredData = new ArrayList<>(latestData.values());
-
-        List<RecentTrafficResponse> responseList = new ArrayList<>();
-
-        // geometry 정보를 추가
-        try (Connection conn = DriverManager.getConnection(GEOMETRY_DB_URL)) {
-            PreparedStatement pstmt = conn.prepareStatement(
-                    "SELECT link_id, geometry FROM daejeon_link_wgs84 WHERE link_id = ?");
-            for (TrafficData data : filteredData) {
-                pstmt.setLong(1, data.getLinkId());
-                try (ResultSet rs = pstmt.executeQuery()) {
-                    if (rs.next()) {
-                        String geometry = rs.getString("geometry");
-                        RecentTrafficResponse response = new RecentTrafficResponse(data, geometry);
-                        responseList.add(response);
-                    }
-                }
-            }
-        } catch (SQLException e) {
-            log.error("Error fetching geometry data", e);
-        }
-        return responseList;
-    }*/
-
-    public List<Long> findNodeIdsInArea(double minX, double maxX, double minY, double maxY) {
-        String sql = "SELECT node_id FROM daejeon_node_xy WHERE x BETWEEN ? AND ? AND y BETWEEN ? AND ?";
-        List<Long> nodeIds = new ArrayList<>();
-
-        try (Connection conn = DriverManager.getConnection(NODE_DB_URL);
-             PreparedStatement pstmt = conn.prepareStatement(sql)) {
-            pstmt.setDouble(1, minX);
-            pstmt.setDouble(2, maxX);
-            pstmt.setDouble(3, minY);
-            pstmt.setDouble(4, maxY);
-            ResultSet rs = pstmt.executeQuery();
-            while (rs.next()) {
-                nodeIds.add(rs.getLong("node_id"));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-        return nodeIds;
-    }
-
-    // 5분마다 캐시 업데이트
-/*    @Scheduled(fixedRate = 300000)
-    @Transactional
-    public void updateCache() {
-        List<TrafficData> allData = trafficDataRepository.findAllOrderByDateDesc();
-        Cache cache = cacheManager.getCache("trafficDataCache");
-        Set<Long> updatedLinkIds = new HashSet<>();
-
-        if (cache != null) {
-            for (TrafficData data : allData) {
-                if (!updatedLinkIds.contains(data.getLinkId())) {
-                    cache.put(data.getLinkId(), data);
-                    updatedLinkIds.add(data.getLinkId());
-                }
-                else{
-                    break;
-                }
-            }
-            log.info("Cache updated with the most recent traffic data.");
-        }
-    }*/
-
     @Transactional(readOnly = true)
-    public List<TrafficResponse> findRecentTrafficDataByNodeIds(TrafficRequest request, List<Long> nodeIds) {
-        log.info("Processing findRecentTrafficDataByNodeIds in thread: " + Thread.currentThread().getName());
+    public List<TrafficResponse> findRecentTrafficData(TrafficRequest request) {
+        log.info("Processing findRecentTrafficData in thread: " + Thread.currentThread().getName());
         Cache cache = cacheManager.getCache("trafficDataCache");
         List<TrafficResponse> responseList = new ArrayList<>();
 
         if (cache != null) {
-            for (Long nodeId : nodeIds) {
-                TrafficData data = cache.get(nodeId, TrafficData.class);
-                if (data != null) {
+            Map<Object, Object> nativeCache = (Map<Object, Object>) cache.getNativeCache();
+            nativeCache.forEach((key, value) -> {
+                CachedTrafficData cachedData = (CachedTrafficData) value;
+                if (isInBounds(cachedData, request.getMinX(), request.getMaxX(), request.getMinY(), request.getMaxY())) {
+                    TrafficResponse data = convertToTrafficResponse(cachedData);
                     if(request.getMapLevel() >= 8 && data.getRoadRank().equals("104")){
-                        continue;
+                        return;
                     }
-                    responseList.add(new TrafficResponse(data, fetchGeometryForLinkId(data.getLinkId())));
+                    responseList.add(data);
                 }
-            }
+            });
         }
-        log.info("findRecentTrafficDataByNodeIds processed successfully in thread: " + Thread.currentThread().getName());
+        log.info("findRecentTrafficData processed successfully in thread: " + Thread.currentThread().getName());
         return responseList;
     }
 
-    private String fetchGeometryForLinkId(Long linkId) {
-        try (Connection conn = DriverManager.getConnection(GEOMETRY_DB_URL);
-             PreparedStatement pstmt = conn.prepareStatement("SELECT geometry FROM daejeon_link_wgs84 WHERE link_id = ?")) {
-            pstmt.setLong(1, linkId);
-            ResultSet rs = pstmt.executeQuery();
-            if (rs.next()) {
-                return rs.getString("geometry");
-            }
-        } catch (SQLException e) {
-            log.error("Error fetching geometry data for linkId: " + linkId, e);
-        }
-        return null;
+    private boolean isInBounds(CachedTrafficData data, double minX, double maxX, double minY, double maxY) {
+        return (data.getStartX() >= minX && data.getStartX() <= maxX && data.getStartY() >= minY && data.getStartY() <= maxY) ||
+                (data.getEndX() >= minX && data.getEndX() <= maxX && data.getEndY() >= minY && data.getEndY() <= maxY);
+    }
+
+    private TrafficResponse convertToTrafficResponse(CachedTrafficData cachedData) {
+        TrafficResponse response = new TrafficResponse();
+        response.setId(cachedData.getId());
+        response.setLinkId(cachedData.getLinkId());
+        response.setSpeed(cachedData.getSpeed());
+        response.setStartNodeId(cachedData.getStartNodeId());
+        response.setEndNodeId(cachedData.getEndNodeId());
+        response.setRoadName(cachedData.getRoadName());
+        response.setRoadRank(cachedData.getRoadRank());
+        response.setGeometry(cachedData.getGeometry());
+        response.setRoadStatus(cachedData.getRoadStatus());
+        response.setDate(cachedData.getDate());
+        return response;
     }
 }
 

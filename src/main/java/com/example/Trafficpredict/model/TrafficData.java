@@ -20,9 +20,9 @@ public class TrafficData {
     private Long id;
 
     @Column(name = "link_id")
-    private Long linkId;
+    private String linkId;
 
-    @Column(name = "start_node_id")
+/*    @Column(name = "start_node_id")
     private Long startNodeId;
 
     @Column(name = "end_node_id")
@@ -32,13 +32,13 @@ public class TrafficData {
     private String roadName;
 
     @Column(name = "road_rank")
-    private String roadRank;
+    private String roadRank;*/
 
     @Column(name = "speed")
     private Double speed;
 
-    @Column(name = "road_status")
-    private Integer roadStatus;
+/*    @Column(name = "road_status")
+    private Integer roadStatus;*/
 
     @Column(name = "date", columnDefinition = "TIMESTAMP")
     private OffsetDateTime date;
