@@ -558,3 +558,624 @@ org.springframework.transaction.UnexpectedRollbackException: Transaction silentl
 	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
 	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
 
+2024-06-25 00:28:30.019  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : fetchAndStoreTrafficData started in thread: ITS-1
+2024-06-25 00:28:33.376  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Batch processing started in thread: ITS-1. Total items to process: 8755
+2024-06-25 00:28:34.266  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 0 to 199. Batch size: 200
+2024-06-25 00:28:35.188  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 200 to 399. Batch size: 200
+2024-06-25 00:28:36.069  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 400 to 599. Batch size: 200
+2024-06-25 00:28:36.939  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 600 to 799. Batch size: 200
+2024-06-25 00:28:37.796  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 800 to 999. Batch size: 200
+2024-06-25 00:28:38.739  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 1000 to 1199. Batch size: 200
+2024-06-25 00:28:39.626  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 1200 to 1399. Batch size: 200
+2024-06-25 00:28:40.486  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 1400 to 1599. Batch size: 200
+2024-06-25 00:28:41.375  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 1600 to 1799. Batch size: 200
+2024-06-25 00:28:42.241  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 1800 to 1999. Batch size: 200
+2024-06-25 00:28:43.128  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 2000 to 2199. Batch size: 200
+2024-06-25 00:28:43.985  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 2200 to 2399. Batch size: 200
+2024-06-25 00:28:44.870  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 2400 to 2599. Batch size: 200
+2024-06-25 00:28:45.744  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 2600 to 2799. Batch size: 200
+2024-06-25 00:28:46.649  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 2800 to 2999. Batch size: 200
+2024-06-25 00:28:47.529  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 3000 to 3199. Batch size: 200
+2024-06-25 00:28:48.412  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 3200 to 3399. Batch size: 200
+2024-06-25 00:28:49.292  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 3400 to 3599. Batch size: 200
+2024-06-25 00:28:50.165  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 3600 to 3799. Batch size: 200
+2024-06-25 00:28:51.028  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 3800 to 3999. Batch size: 200
+2024-06-25 00:28:51.935  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 4000 to 4199. Batch size: 200
+2024-06-25 00:28:52.802  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 4200 to 4399. Batch size: 200
+2024-06-25 00:28:53.699  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 4400 to 4599. Batch size: 200
+2024-06-25 00:28:54.602  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 4600 to 4799. Batch size: 200
+2024-06-25 00:28:55.514  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 4800 to 4999. Batch size: 200
+2024-06-25 00:28:56.418  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 5000 to 5199. Batch size: 200
+2024-06-25 00:28:57.391  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 5200 to 5399. Batch size: 200
+2024-06-25 00:28:58.275  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 5400 to 5599. Batch size: 200
+2024-06-25 00:28:59.203  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 5600 to 5799. Batch size: 200
+2024-06-25 00:29:00.195  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 5800 to 5999. Batch size: 200
+2024-06-25 00:29:01.073  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 6000 to 6199. Batch size: 200
+2024-06-25 00:29:02.263  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 6200 to 6399. Batch size: 200
+2024-06-25 00:29:03.212  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 6400 to 6599. Batch size: 200
+2024-06-25 00:29:04.089  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 6600 to 6799. Batch size: 200
+2024-06-25 00:29:04.942  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 6800 to 6999. Batch size: 200
+2024-06-25 00:29:05.860  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 7000 to 7199. Batch size: 200
+2024-06-25 00:29:06.756  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 7200 to 7399. Batch size: 200
+2024-06-25 00:29:07.652  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 7400 to 7599. Batch size: 200
+2024-06-25 00:29:08.643  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 7600 to 7799. Batch size: 200
+2024-06-25 00:29:09.629  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 7800 to 7999. Batch size: 200
+2024-06-25 00:29:10.636  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 8000 to 8199. Batch size: 200
+2024-06-25 00:29:11.544  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 8200 to 8399. Batch size: 200
+2024-06-25 00:29:12.494  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 8400 to 8599. Batch size: 200
+2024-06-25 00:29:13.248  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 8600 to 8754. Batch size: 155
+2024-06-25 00:29:13.248  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Batch processing completed. Total items processed: 8755
+2024-06-25 00:29:13.248  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Scheduled API call executed successfully.
+2024-06-25 00:29:58.236  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Cache updated with the most recent traffic data.
+2024-06-25 00:29:59.408  WARN 1876 --- [Traffic-predict] [ITS-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 1213, SQLState: 40001
+2024-06-25 00:29:59.408 ERROR 1876 --- [Traffic-predict] [ITS-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : Deadlock found when trying to get lock; try restarting transaction
+2024-06-25 00:29:59.408 ERROR 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Error during scheduled API call: 
+
+org.springframework.dao.CannotAcquireLockException: JDBC exception executing SQL [delete from traffic_data where date<?] [Deadlock found when trying to get lock; try restarting transaction] [n/a]; SQL [n/a]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:283) ~[spring-orm-6.1.6.jar:6.1.6]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:244) ~[spring-orm-6.1.6.jar:6.1.6]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:550) ~[spring-orm-6.1.6.jar:6.1.6]
+	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:335) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:152) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:135) ~[spring-data-jpa-3.2.5.jar:3.2.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:223) ~[spring-aop-6.1.6.jar:6.1.6]
+	at jdk.proxy5/jdk.proxy5.$Proxy131.deleteDataOlderThan(Unknown Source) ~[na:na]
+	at com.example.Trafficpredict.service.ITSService.cleanOldData(ITSService.java:109) ~[main/:na]
+	at com.example.Trafficpredict.service.ITSService.fetchAndStoreTrafficData(ITSService.java:97) ~[main/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:354) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.aop.interceptor.AsyncExecutionInterceptor.lambda$invoke$0(AsyncExecutionInterceptor.java:113) ~[spring-aop-6.1.6.jar:6.1.6]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+Caused by: org.hibernate.exception.LockAcquisitionException: JDBC exception executing SQL [delete from traffic_data where date<?] [Deadlock found when trying to get lock; try restarting transaction] [n/a]
+	at org.hibernate.dialect.MySQLDialect.lambda$buildSQLExceptionConversionDelegate$3(MySQLDialect.java:1211) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:94) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.sql.exec.internal.StandardJdbcMutationExecutor.execute(StandardJdbcMutationExecutor.java:101) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.query.sqm.internal.SimpleDeleteQueryPlan.executeUpdate(SimpleDeleteQueryPlan.java:191) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.query.sqm.internal.QuerySqmImpl.doExecuteUpdate(QuerySqmImpl.java:705) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.query.sqm.internal.QuerySqmImpl.executeUpdate(QuerySqmImpl.java:675) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution$ModifyingExecution.doExecute(JpaQueryExecution.java:266) ~[spring-data-jpa-3.2.5.jar:3.2.5]
+	at org.springframework.data.jpa.repository.query.JpaQueryExecution.execute(JpaQueryExecution.java:92) ~[spring-data-jpa-3.2.5.jar:3.2.5]
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.doExecute(AbstractJpaQuery.java:149) ~[spring-data-jpa-3.2.5.jar:3.2.5]
+	at org.springframework.data.jpa.repository.query.AbstractJpaQuery.execute(AbstractJpaQuery.java:137) ~[spring-data-jpa-3.2.5.jar:3.2.5]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:170) ~[spring-data-commons-3.2.5.jar:3.2.5]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158) ~[spring-data-commons-3.2.5.jar:3.2.5]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:164) ~[spring-data-commons-3.2.5.jar:3.2.5]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:143) ~[spring-data-commons-3.2.5.jar:3.2.5]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137) ~[spring-tx-6.1.6.jar:6.1.6]
+	... 27 common frames omitted
+Caused by: com.mysql.cj.jdbc.exceptions.MySQLTransactionRollbackException: Deadlock found when trying to get lock; try restarting transaction
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:123) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1092) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1040) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1350) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1025) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:na]
+	at org.hibernate.sql.exec.internal.StandardJdbcMutationExecutor.execute(StandardJdbcMutationExecutor.java:87) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	... 44 common frames omitted
+
+2024-06-25 00:29:59.453 ERROR 1876 --- [Traffic-predict] [ITS-1] .a.i.SimpleAsyncUncaughtExceptionHandler : Unexpected exception occurred invoking async method: public void com.example.Trafficpredict.service.ITSService.fetchAndStoreTrafficData()
+
+org.springframework.transaction.UnexpectedRollbackException: Transaction silently rolled back because it has been marked as rollback-only
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:803) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:757) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:676) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:426) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.aop.interceptor.AsyncExecutionInterceptor.lambda$invoke$0(AsyncExecutionInterceptor.java:113) ~[spring-aop-6.1.6.jar:6.1.6]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+
+2024-06-25 00:32:34.843  INFO 1876 --- [Traffic-predict] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2024-06-25 00:32:34.979  INFO 1876 --- [Traffic-predict] [Thread-7] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-25 00:32:34.984  INFO 1876 --- [Traffic-predict] [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown initiated...
+2024-06-25 00:32:35.073  INFO 1876 --- [Traffic-predict] [Thread-7] com.zaxxer.hikari.HikariDataSource       : HikariPool-2 - Shutdown completed.
+2024-06-25 00:32:35.356  INFO 1876 --- [Traffic-predict] [restartedMain] c.e.T.TrafficPredictApplication          : Starting TrafficPredictApplication using Java 17.0.10 with PID 1876 (C:\Users\geonwoo\Documents\spring\Traffic-predict\build\classes\java\main started by geonwoo in C:\Users\geonwoo\Documents\spring\Traffic-predict)
+2024-06-25 00:32:35.356  INFO 1876 --- [Traffic-predict] [restartedMain] c.e.T.TrafficPredictApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-06-25 00:32:35.939  INFO 1876 --- [Traffic-predict] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-25 00:32:35.957  INFO 1876 --- [Traffic-predict] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 17 ms. Found 1 JPA repository interface.
+2024-06-25 00:32:36.442  INFO 1876 --- [Traffic-predict] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-06-25 00:32:36.445  INFO 1876 --- [Traffic-predict] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-25 00:32:36.445  INFO 1876 --- [Traffic-predict] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-06-25 00:32:36.503  INFO 1876 --- [Traffic-predict] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-25 00:32:36.503  INFO 1876 --- [Traffic-predict] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 1134 ms
+2024-06-25 00:32:36.631  INFO 1876 --- [Traffic-predict] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-25 00:32:36.645  INFO 1876 --- [Traffic-predict] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-25 00:32:36.665  INFO 1876 --- [Traffic-predict] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-25 00:32:36.669  INFO 1876 --- [Traffic-predict] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Starting...
+2024-06-25 00:32:36.805  INFO 1876 --- [Traffic-predict] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4c0182d6
+2024-06-25 00:32:36.806  INFO 1876 --- [Traffic-predict] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Start completed.
+2024-06-25 00:32:36.814  WARN 1876 --- [Traffic-predict] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-25 00:32:36.929  INFO 1876 --- [Traffic-predict] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-25 00:32:36.950  INFO 1876 --- [Traffic-predict] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-25 00:32:37.327  WARN 1876 --- [Traffic-predict] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-25 00:32:37.797  INFO 1876 --- [Traffic-predict] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-25 00:32:37.829  INFO 1876 --- [Traffic-predict] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-06-25 00:32:37.844  INFO 1876 --- [Traffic-predict] [restartedMain] c.e.T.TrafficPredictApplication          : Started TrafficPredictApplication in 2.621 seconds (process running for 2796.422)
+2024-06-25 00:32:37.848  INFO 1876 --- [Traffic-predict] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-06-25 00:32:37.859  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : fetchAndStoreTrafficData started in thread: ITS-1
+2024-06-25 00:32:39.384  INFO 1876 --- [Traffic-predict] [File Watcher] rtingClassPathChangeChangedEventListener : Restarting due to 2 class path changes (1 addition, 0 deletions, 1 modification)
+2024-06-25 00:32:46.846  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Batch processing started in thread: ITS-1. Total items to process: 8755
+2024-06-25 00:32:47.891  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 0 to 199. Batch size: 200
+2024-06-25 00:32:48.622  WARN 6000 --- [Traffic-predict] [Test worker] ory$DuplicateJsonObjectContextCustomizer : 
+
+Found multiple occurrences of org.json.JSONObject on the class path:
+
+	jar:file:/C:/Users/geonwoo/.gradle/caches/modules-2/files-2.1/org.json/json/20210307/528c8df3757e8bcf151817b1d7b9b434f6aa08d5/json-20210307.jar!/org/json/JSONObject.class
+	jar:file:/C:/Users/geonwoo/.gradle/caches/modules-2/files-2.1/com.vaadin.external.google/android-json/0.0.20131108.vaadin1/fa26d351fe62a6a17f5cda1287c1c6110dec413f/android-json-0.0.20131108.vaadin1.jar!/org/json/JSONObject.class
+
+You may wish to exclude one of them to ensure predictable runtime behavior
+
+2024-06-25 00:32:48.653  INFO 6000 --- [Traffic-predict] [Test worker] c.e.T.TrafficPredictApplicationTests     : Starting TrafficPredictApplicationTests using Java 17.0.10 with PID 6000 (started by geonwoo in C:\Users\geonwoo\Documents\spring\Traffic-predict)
+2024-06-25 00:32:48.654  INFO 6000 --- [Traffic-predict] [Test worker] c.e.T.TrafficPredictApplicationTests     : No active profile set, falling back to 1 default profile: "default"
+2024-06-25 00:32:48.902  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 200 to 399. Batch size: 200
+2024-06-25 00:32:49.953  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 400 to 599. Batch size: 200
+2024-06-25 00:32:50.363  INFO 6000 --- [Traffic-predict] [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-25 00:32:50.475  INFO 6000 --- [Traffic-predict] [Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 91 ms. Found 1 JPA repository interface.
+2024-06-25 00:32:51.021  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 600 to 799. Batch size: 200
+2024-06-25 00:32:52.032  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 800 to 999. Batch size: 200
+2024-06-25 00:32:52.993  INFO 6000 --- [Traffic-predict] [Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-25 00:32:53.102  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 1000 to 1199. Batch size: 200
+2024-06-25 00:32:53.243  INFO 6000 --- [Traffic-predict] [Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.4.4.Final
+2024-06-25 00:32:53.366  INFO 6000 --- [Traffic-predict] [Test worker] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-25 00:32:54.157  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 1200 to 1399. Batch size: 200
+2024-06-25 00:32:54.285  INFO 6000 --- [Traffic-predict] [Test worker] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-25 00:32:54.389  INFO 6000 --- [Traffic-predict] [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2024-06-25 00:32:55.155  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 1400 to 1599. Batch size: 200
+2024-06-25 00:32:55.238  INFO 6000 --- [Traffic-predict] [Test worker] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@793d09e
+2024-06-25 00:32:55.243  INFO 6000 --- [Traffic-predict] [Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2024-06-25 00:32:55.358  WARN 6000 --- [Traffic-predict] [Test worker] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-25 00:32:56.198  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 1600 to 1799. Batch size: 200
+2024-06-25 00:32:57.202  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 1800 to 1999. Batch size: 200
+2024-06-25 00:32:57.801  INFO 6000 --- [Traffic-predict] [Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-25 00:32:57.902  INFO 6000 --- [Traffic-predict] [Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-25 00:32:58.221  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 2000 to 2199. Batch size: 200
+2024-06-25 00:32:58.550  INFO 6000 --- [Traffic-predict] [Test worker] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-06-25 00:32:59.247  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 2200 to 2399. Batch size: 200
+2024-06-25 00:33:00.261  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 2400 to 2599. Batch size: 200
+2024-06-25 00:33:00.344  WARN 6000 --- [Traffic-predict] [Test worker] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-25 00:33:01.796  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 2600 to 2799. Batch size: 200
+2024-06-25 00:33:02.104  INFO 6000 --- [Traffic-predict] [Test worker] c.e.T.TrafficPredictApplicationTests     : Started TrafficPredictApplicationTests in 14.118 seconds (process running for 18.109)
+2024-06-25 00:33:02.139  INFO 6000 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : fetchAndStoreTrafficData started in thread: ITS-1
+2024-06-25 00:33:02.963  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 2800 to 2999. Batch size: 200
+2024-06-25 00:33:04.236  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 3000 to 3199. Batch size: 200
+2024-06-25 00:33:05.226  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 3200 to 3399. Batch size: 200
+2024-06-25 00:33:06.206  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 3400 to 3599. Batch size: 200
+2024-06-25 00:33:07.194  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 3600 to 3799. Batch size: 200
+2024-06-25 00:33:07.400  INFO 6000 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Batch processing started in thread: ITS-1. Total items to process: 8755
+2024-06-25 00:33:08.151  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 3800 to 3999. Batch size: 200
+2024-06-25 00:33:08.618  INFO 6000 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 0 to 199. Batch size: 200
+2024-06-25 00:33:09.145  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 4000 to 4199. Batch size: 200
+2024-06-25 00:33:09.394  INFO 1876 --- [Traffic-predict] [Thread-11] o.s.c.support.DefaultLifecycleProcessor  : Shutdown phase 2147483647 ends with 1 bean still running after timeout of 30000ms: [taskExecutor]
+2024-06-25 00:33:09.433  INFO 1876 --- [Traffic-predict] [Thread-11] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-25 00:33:09.434  INFO 1876 --- [Traffic-predict] [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown initiated...
+2024-06-25 00:33:09.447  WARN 1876 --- [Traffic-predict] [ITS-1] com.zaxxer.hikari.pool.ProxyConnection   : HikariPool-3 - Connection com.mysql.cj.jdbc.ConnectionImpl@4c0182d6 marked as broken because of SQLSTATE(08S01), ErrorCode(0)
+
+com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 5 milliseconds ago. The last packet sent successfully to the server was 5 milliseconds ago.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1092) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1040) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1350) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1025) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:na]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:194) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.performNonBatchedMutation(AbstractMutationExecutor.java:108) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorSingleNonBatched.performNonBatchedOperations(MutationExecutorSingleNonBatched.java:40) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.execute(AbstractMutationExecutor.java:52) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.doStaticInserts(InsertCoordinator.java:175) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.coordinateInsert(InsertCoordinator.java:113) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2873) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:104) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:632) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:499) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:363) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:41) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1403) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.internal.SessionImpl.flush(SessionImpl.java:1389) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at jdk.internal.reflect.GeneratedMethodAccessor41.invoke(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:319) ~[spring-orm-6.1.6.jar:6.1.6]
+	at jdk.proxy6/jdk.proxy6.$Proxy133.flush(Unknown Source) ~[na:na]
+	at com.example.Trafficpredict.service.ITSService.storeData(ITSService.java:217) ~[main/:na]
+	at com.example.Trafficpredict.service.ITSService.callApi(ITSService.java:178) ~[main/:na]
+	at com.example.Trafficpredict.service.ITSService.fetchAndStoreTrafficData(ITSService.java:93) ~[main/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:354) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.aop.interceptor.AsyncExecutionInterceptor.lambda$invoke$0(AsyncExecutionInterceptor.java:113) ~[spring-aop-6.1.6.jar:6.1.6]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 5 milliseconds ago. The last packet sent successfully to the server was 5 milliseconds ago.
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[na:na]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.protocol.a.NativeProtocol.readMessage(NativeProtocol.java:519) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.protocol.a.NativeProtocol.checkErrorMessage(NativeProtocol.java:683) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendCommand(NativeProtocol.java:622) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendQueryPacket(NativeProtocol.java:970) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.NativeSession.execSQL(NativeSession.java:662) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:930) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	... 47 common frames omitted
+Caused by: java.net.SocketException: Socket closed
+	at java.base/sun.nio.ch.NioSocketImpl.endRead(NioSocketImpl.java:253) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:332) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:355) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:808) ~[na:na]
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:484) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:478) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1461) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1065) ~[na:na]
+	at java.base/java.io.FilterInputStream.read(FilterInputStream.java:132) ~[na:na]
+	at com.mysql.cj.protocol.FullReadInputStream.readFully(FullReadInputStream.java:64) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.protocol.a.SimplePacketReader.readHeader(SimplePacketReader.java:63) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.protocol.a.SimplePacketReader.readHeader(SimplePacketReader.java:45) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.protocol.a.TimeTrackingPacketReader.readHeader(TimeTrackingPacketReader.java:52) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.protocol.a.TimeTrackingPacketReader.readHeader(TimeTrackingPacketReader.java:41) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.protocol.a.MultiPacketReader.readHeader(MultiPacketReader.java:54) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.protocol.a.MultiPacketReader.readHeader(MultiPacketReader.java:44) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.protocol.a.NativeProtocol.readMessage(NativeProtocol.java:513) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	... 52 common frames omitted
+
+2024-06-25 00:33:09.458  WARN 1876 --- [Traffic-predict] [ITS-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : SQL Error: 0, SQLState: 08S01
+2024-06-25 00:33:09.458 ERROR 1876 --- [Traffic-predict] [ITS-1] o.h.engine.jdbc.spi.SqlExceptionHelper   : Communications link failure
+
+The last packet successfully received from the server was 5 milliseconds ago. The last packet sent successfully to the server was 5 milliseconds ago.
+2024-06-25 00:33:09.461 ERROR 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Error during scheduled API call: 
+
+org.hibernate.exception.JDBCConnectionException: could not execute statement [Communications link failure
+
+The last packet successfully received from the server was 5 milliseconds ago. The last packet sent successfully to the server was 5 milliseconds ago.] [insert into traffic_data (date,link_id,speed,id) values (?,?,?,?)]
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:100) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:58) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:108) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:197) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.performNonBatchedMutation(AbstractMutationExecutor.java:108) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorSingleNonBatched.performNonBatchedOperations(MutationExecutorSingleNonBatched.java:40) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.execute(AbstractMutationExecutor.java:52) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.doStaticInserts(InsertCoordinator.java:175) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.coordinateInsert(InsertCoordinator.java:113) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2873) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:104) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:632) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:499) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:363) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:41) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1403) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.internal.SessionImpl.flush(SessionImpl.java:1389) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at jdk.internal.reflect.GeneratedMethodAccessor41.invoke(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:319) ~[spring-orm-6.1.6.jar:6.1.6]
+	at jdk.proxy6/jdk.proxy6.$Proxy133.flush(Unknown Source) ~[na:na]
+	at com.example.Trafficpredict.service.ITSService.storeData(ITSService.java:217) ~[main/:na]
+	at com.example.Trafficpredict.service.ITSService.callApi(ITSService.java:178) ~[main/:na]
+	at com.example.Trafficpredict.service.ITSService.fetchAndStoreTrafficData(ITSService.java:93) ~[main/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:354) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.aop.interceptor.AsyncExecutionInterceptor.lambda$invoke$0(AsyncExecutionInterceptor.java:113) ~[spring-aop-6.1.6.jar:6.1.6]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+Caused by: com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 5 milliseconds ago. The last packet sent successfully to the server was 5 milliseconds ago.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1092) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1040) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1350) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1025) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:na]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:194) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	... 40 common frames omitted
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 5 milliseconds ago. The last packet sent successfully to the server was 5 milliseconds ago.
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[na:na]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.protocol.a.NativeProtocol.readMessage(NativeProtocol.java:519) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.protocol.a.NativeProtocol.checkErrorMessage(NativeProtocol.java:683) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendCommand(NativeProtocol.java:622) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendQueryPacket(NativeProtocol.java:970) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.NativeSession.execSQL(NativeSession.java:662) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:930) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	... 47 common frames omitted
+Caused by: java.net.SocketException: Socket closed
+	at java.base/sun.nio.ch.NioSocketImpl.endRead(NioSocketImpl.java:253) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:332) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:355) ~[na:na]
+	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:808) ~[na:na]
+	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:966) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketInputRecord.read(SSLSocketInputRecord.java:484) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketInputRecord.readHeader(SSLSocketInputRecord.java:478) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketInputRecord.bytesInCompletePacket(SSLSocketInputRecord.java:70) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketImpl.readApplicationRecord(SSLSocketImpl.java:1461) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketImpl$AppInputStream.read(SSLSocketImpl.java:1065) ~[na:na]
+	at java.base/java.io.FilterInputStream.read(FilterInputStream.java:132) ~[na:na]
+	at com.mysql.cj.protocol.FullReadInputStream.readFully(FullReadInputStream.java:64) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.protocol.a.SimplePacketReader.readHeader(SimplePacketReader.java:63) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.protocol.a.SimplePacketReader.readHeader(SimplePacketReader.java:45) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.protocol.a.TimeTrackingPacketReader.readHeader(TimeTrackingPacketReader.java:52) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.protocol.a.TimeTrackingPacketReader.readHeader(TimeTrackingPacketReader.java:41) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.protocol.a.MultiPacketReader.readHeader(MultiPacketReader.java:54) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.protocol.a.MultiPacketReader.readHeader(MultiPacketReader.java:44) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.protocol.a.NativeProtocol.readMessage(NativeProtocol.java:513) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	... 52 common frames omitted
+
+2024-06-25 00:33:09.479  INFO 1876 --- [Traffic-predict] [Thread-11] com.zaxxer.hikari.HikariDataSource       : HikariPool-3 - Shutdown completed.
+2024-06-25 00:33:09.485 ERROR 1876 --- [Traffic-predict] [ITS-1] .a.i.SimpleAsyncUncaughtExceptionHandler : Unexpected exception occurred invoking async method: public void com.example.Trafficpredict.service.ITSService.fetchAndStoreTrafficData()
+
+org.springframework.orm.jpa.JpaSystemException: Unable to rollback against JDBC Connection
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.convertHibernateAccessException(HibernateJpaDialect.java:341) ~[spring-orm-6.1.6.jar:6.1.6]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:241) ~[spring-orm-6.1.6.jar:6.1.6]
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:566) ~[spring-orm-6.1.6.jar:6.1.6]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.processCommit(AbstractPlatformTransactionManager.java:794) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.transaction.support.AbstractPlatformTransactionManager.commit(AbstractPlatformTransactionManager.java:757) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.commitTransactionAfterReturning(TransactionAspectSupport.java:676) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:426) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.aop.interceptor.AsyncExecutionInterceptor.lambda$invoke$0(AsyncExecutionInterceptor.java:113) ~[spring-aop-6.1.6.jar:6.1.6]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+Caused by: org.hibernate.TransactionException: Unable to rollback against JDBC Connection
+	at org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor.rollback(AbstractLogicalConnectionImplementor.java:127) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.rollback(JdbcResourceLocalTransactionCoordinatorImpl.java:290) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.commit(JdbcResourceLocalTransactionCoordinatorImpl.java:249) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.transaction.internal.TransactionImpl.commit(TransactionImpl.java:101) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.springframework.orm.jpa.JpaTransactionManager.doCommit(JpaTransactionManager.java:562) ~[spring-orm-6.1.6.jar:6.1.6]
+	... 12 common frames omitted
+Caused by: java.sql.SQLException: Connection is closed
+	at com.zaxxer.hikari.pool.ProxyConnection$ClosedConnection.lambda$getClosedConnection$0(ProxyConnection.java:502) ~[HikariCP-5.0.1.jar:na]
+	at jdk.proxy3/jdk.proxy3.$Proxy96.rollback(Unknown Source) ~[na:na]
+	at com.zaxxer.hikari.pool.ProxyConnection.rollback(ProxyConnection.java:385) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyConnection.rollback(HikariProxyConnection.java) ~[HikariCP-5.0.1.jar:na]
+	at org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor.rollback(AbstractLogicalConnectionImplementor.java:121) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	... 16 common frames omitted
+
+2024-06-25 00:33:09.691  INFO 1876 --- [Traffic-predict] [restartedMain] c.e.T.TrafficPredictApplication          : Starting TrafficPredictApplication using Java 17.0.10 with PID 1876 (C:\Users\geonwoo\Documents\spring\Traffic-predict\build\classes\java\main started by geonwoo in C:\Users\geonwoo\Documents\spring\Traffic-predict)
+2024-06-25 00:33:09.692  INFO 1876 --- [Traffic-predict] [restartedMain] c.e.T.TrafficPredictApplication          : No active profile set, falling back to 1 default profile: "default"
+2024-06-25 00:33:09.721  INFO 6000 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 200 to 399. Batch size: 200
+2024-06-25 00:33:10.172  INFO 1876 --- [Traffic-predict] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-06-25 00:33:10.189  INFO 1876 --- [Traffic-predict] [restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 16 ms. Found 1 JPA repository interface.
+2024-06-25 00:33:10.610  INFO 1876 --- [Traffic-predict] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8080 (http)
+2024-06-25 00:33:10.610  INFO 1876 --- [Traffic-predict] [restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-25 00:33:10.611  INFO 1876 --- [Traffic-predict] [restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.20]
+2024-06-25 00:33:10.651  INFO 1876 --- [Traffic-predict] [restartedMain] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-25 00:33:10.651  INFO 1876 --- [Traffic-predict] [restartedMain] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 951 ms
+2024-06-25 00:33:10.743  INFO 1876 --- [Traffic-predict] [restartedMain] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-06-25 00:33:10.757  INFO 1876 --- [Traffic-predict] [restartedMain] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-06-25 00:33:10.780  INFO 1876 --- [Traffic-predict] [restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-06-25 00:33:10.783  INFO 1876 --- [Traffic-predict] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Starting...
+2024-06-25 00:33:10.791  INFO 6000 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 400 to 599. Batch size: 200
+2024-06-25 00:33:10.870  INFO 1876 --- [Traffic-predict] [restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-4 - Added connection com.mysql.cj.jdbc.ConnectionImpl@293b4a97
+2024-06-25 00:33:10.870  INFO 1876 --- [Traffic-predict] [restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-4 - Start completed.
+2024-06-25 00:33:10.876  WARN 1876 --- [Traffic-predict] [restartedMain] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-06-25 00:33:10.941  INFO 1876 --- [Traffic-predict] [restartedMain] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-06-25 00:33:10.964  INFO 1876 --- [Traffic-predict] [restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-06-25 00:33:11.171  WARN 1876 --- [Traffic-predict] [restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2024-06-25 00:33:11.535  INFO 1876 --- [Traffic-predict] [restartedMain] o.s.b.d.a.OptionalLiveReloadServer       : LiveReload server is running on port 35729
+2024-06-25 00:33:11.559  INFO 1876 --- [Traffic-predict] [restartedMain] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8080 (http) with context path ''
+2024-06-25 00:33:11.565  INFO 1876 --- [Traffic-predict] [restartedMain] c.e.T.TrafficPredictApplication          : Started TrafficPredictApplication in 1.964 seconds (process running for 2830.144)
+2024-06-25 00:33:11.568  INFO 1876 --- [Traffic-predict] [restartedMain] .ConditionEvaluationDeltaLoggingListener : Condition evaluation unchanged
+2024-06-25 00:33:11.578  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : fetchAndStoreTrafficData started in thread: ITS-1
+2024-06-25 00:33:11.840  INFO 6000 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 600 to 799. Batch size: 200
+2024-06-25 00:33:12.850  INFO 6000 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 800 to 999. Batch size: 200
+2024-06-25 00:33:13.901  INFO 6000 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 1000 to 1199. Batch size: 200
+2024-06-25 00:33:14.923  INFO 6000 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 1200 to 1399. Batch size: 200
+2024-06-25 00:33:15.923  INFO 6000 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 1400 to 1599. Batch size: 200
+2024-06-25 00:33:16.588  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Batch processing started in thread: ITS-1. Total items to process: 8755
+2024-06-25 00:33:17.006  INFO 6000 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 1600 to 1799. Batch size: 200
+2024-06-25 00:33:17.610  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 0 to 199. Batch size: 200
+2024-06-25 00:33:18.011  INFO 6000 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 1800 to 1999. Batch size: 200
+2024-06-25 00:33:18.654  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 200 to 399. Batch size: 200
+2024-06-25 00:33:18.958  INFO 6000 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 2000 to 2199. Batch size: 200
+2024-06-25 00:33:19.688  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 400 to 599. Batch size: 200
+2024-06-25 00:33:19.931  INFO 6000 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 2200 to 2399. Batch size: 200
+2024-06-25 00:33:20.668  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 600 to 799. Batch size: 200
+2024-06-25 00:33:20.858  INFO 6000 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 2400 to 2599. Batch size: 200
+2024-06-25 00:33:21.660  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 800 to 999. Batch size: 200
+2024-06-25 00:33:21.784  INFO 6000 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 2600 to 2799. Batch size: 200
+2024-06-25 00:33:22.640  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 1000 to 1199. Batch size: 200
+2024-06-25 00:33:22.673  INFO 6000 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 2800 to 2999. Batch size: 200
+2024-06-25 00:33:23.623  INFO 6000 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 3000 to 3199. Batch size: 200
+2024-06-25 00:33:23.652  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 1200 to 1399. Batch size: 200
+2024-06-25 00:33:24.535  INFO 6000 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 3200 to 3399. Batch size: 200
+2024-06-25 00:33:24.630  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 1400 to 1599. Batch size: 200
+2024-06-25 00:33:25.429  INFO 6000 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 3400 to 3599. Batch size: 200
+2024-06-25 00:33:25.623  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 1600 to 1799. Batch size: 200
+2024-06-25 00:33:26.345  INFO 6000 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 3600 to 3799. Batch size: 200
+2024-06-25 00:33:26.606  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 1800 to 1999. Batch size: 200
+2024-06-25 00:33:27.241  INFO 6000 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 3800 to 3999. Batch size: 200
+2024-06-25 00:33:27.588  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 2000 to 2199. Batch size: 200
+2024-06-25 00:33:28.157  INFO 6000 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 4000 to 4199. Batch size: 200
+2024-06-25 00:33:28.557  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 2200 to 2399. Batch size: 200
+2024-06-25 00:33:29.097  INFO 6000 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 4200 to 4399. Batch size: 200
+2024-06-25 00:33:29.567  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 2400 to 2599. Batch size: 200
+2024-06-25 00:33:30.074  INFO 6000 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 4400 to 4599. Batch size: 200
+2024-06-25 00:33:30.704  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 2600 to 2799. Batch size: 200
+2024-06-25 00:33:31.131  INFO 6000 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 4600 to 4799. Batch size: 200
+2024-06-25 00:33:31.853  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 2800 to 2999. Batch size: 200
+2024-06-25 00:33:32.160  INFO 6000 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 4800 to 4999. Batch size: 200
+2024-06-25 00:33:32.879  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 3000 to 3199. Batch size: 200
+2024-06-25 00:33:33.123  INFO 6000 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 5000 to 5199. Batch size: 200
+2024-06-25 00:33:33.936  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 3200 to 3399. Batch size: 200
+2024-06-25 00:33:34.074  INFO 6000 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 5200 to 5399. Batch size: 200
+2024-06-25 00:33:34.397  INFO 6000 --- [Traffic-predict] [SpringApplicationShutdownHook] o.s.c.support.DefaultLifecycleProcessor  : Shutdown phase 2147483647 ends with 1 bean still running after timeout of 30000ms: [taskExecutor]
+2024-06-25 00:33:34.402  INFO 6000 --- [Traffic-predict] [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2024-06-25 00:33:34.409  INFO 6000 --- [Traffic-predict] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2024-06-25 00:33:34.472  WARN 6000 --- [Traffic-predict] [ITS-1] com.zaxxer.hikari.pool.ProxyConnection   : HikariPool-1 - Connection com.mysql.cj.jdbc.ConnectionImpl@793d09e marked as broken because of SQLSTATE(08S01), ErrorCode(0)
+
+com.mysql.cj.jdbc.exceptions.CommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 5 milliseconds ago. The last packet sent successfully to the server was 10 milliseconds ago.
+	at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:64) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:953) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1092) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1040) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1350) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1025) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61) ~[HikariCP-5.0.1.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java) ~[HikariCP-5.0.1.jar:na]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:194) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.performNonBatchedMutation(AbstractMutationExecutor.java:108) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorSingleNonBatched.performNonBatchedOperations(MutationExecutorSingleNonBatched.java:40) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.execute(AbstractMutationExecutor.java:52) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.doStaticInserts(InsertCoordinator.java:175) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.coordinateInsert(InsertCoordinator.java:113) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2873) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.action.internal.EntityInsertAction.execute(EntityInsertAction.java:104) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:632) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.engine.spi.ActionQueue.executeActions(ActionQueue.java:499) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.event.internal.AbstractFlushingEventListener.performExecutions(AbstractFlushingEventListener.java:363) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.event.internal.DefaultFlushEventListener.onFlush(DefaultFlushEventListener.java:41) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.internal.SessionImpl.doFlush(SessionImpl.java:1403) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at org.hibernate.internal.SessionImpl.flush(SessionImpl.java:1389) ~[hibernate-core-6.4.4.Final.jar:6.4.4.Final]
+	at jdk.internal.reflect.GeneratedMethodAccessor24.invoke(Unknown Source) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:319) ~[spring-orm-6.1.6.jar:6.1.6]
+	at jdk.proxy3/jdk.proxy3.$Proxy118.flush(Unknown Source) ~[na:na]
+	at com.example.Trafficpredict.service.ITSService.storeData(ITSService.java:217) ~[main/:na]
+	at com.example.Trafficpredict.service.ITSService.callApi(ITSService.java:178) ~[main/:na]
+	at com.example.Trafficpredict.service.ITSService.fetchAndStoreTrafficData(ITSService.java:93) ~[main/:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:354) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:392) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119) ~[spring-tx-6.1.6.jar:6.1.6]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:768) ~[spring-aop-6.1.6.jar:6.1.6]
+	at org.springframework.aop.interceptor.AsyncExecutionInterceptor.lambda$invoke$0(AsyncExecutionInterceptor.java:113) ~[spring-aop-6.1.6.jar:6.1.6]
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136) ~[na:na]
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635) ~[na:na]
+	at java.base/java.lang.Thread.run(Thread.java:842) ~[na:na]
+Caused by: com.mysql.cj.exceptions.CJCommunicationsException: Communications link failure
+
+The last packet successfully received from the server was 5 milliseconds ago. The last packet sent successfully to the server was 10 milliseconds ago.
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method) ~[na:na]
+	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77) ~[na:na]
+	at java.base/jdk.internal.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstanceWithCaller(Constructor.java:499) ~[na:na]
+	at java.base/java.lang.reflect.Constructor.newInstance(Constructor.java:480) ~[na:na]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:61) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:105) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.exceptions.ExceptionFactory.createException(ExceptionFactory.java:151) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.exceptions.ExceptionFactory.createCommunicationsException(ExceptionFactory.java:167) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.protocol.a.NativeProtocol.send(NativeProtocol.java:550) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendCommand(NativeProtocol.java:605) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.protocol.a.NativeProtocol.sendQueryPacket(NativeProtocol.java:970) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.NativeSession.execSQL(NativeSession.java:662) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:930) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	... 47 common frames omitted
+Caused by: java.net.SocketException: Connection or outbound has been closed
+	at java.base/sun.security.ssl.SSLSocketOutputRecord.deliver(SSLSocketOutputRecord.java:291) ~[na:na]
+	at java.base/sun.security.ssl.SSLSocketImpl$AppOutputStream.write(SSLSocketImpl.java:1304) ~[na:na]
+	at java.base/java.io.BufferedOutputStream.flushBuffer(BufferedOutputStream.java:81) ~[na:na]
+	at java.base/java.io.BufferedOutputStream.flush(BufferedOutputStream.java:142) ~[na:na]
+	at com.mysql.cj.protocol.a.SimplePacketSender.send(SimplePacketSender.java:55) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.protocol.a.TimeTrackingPacketSender.send(TimeTrackingPacketSender.java:50) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	at com.mysql.cj.protocol.a.NativeProtocol.send(NativeProtocol.java:541) ~[mysql-connector-java-8.0.26.jar:8.0.26]
+	... 51 common frames omitted
+
+2024-06-25 00:33:34.500  INFO 6000 --- [Traffic-predict] [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2024-06-25 00:33:35.011  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 3400 to 3599. Batch size: 200
+2024-06-25 00:33:36.150  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 3600 to 3799. Batch size: 200
+2024-06-25 00:33:37.308  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 3800 to 3999. Batch size: 200
+2024-06-25 00:33:38.394  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 4000 to 4199. Batch size: 200
+2024-06-25 00:33:39.522  INFO 1876 --- [Traffic-predict] [ITS-1] c.e.Trafficpredict.service.ITSService    : Processed batch from index 4200 to 4399. Batch size: 200
