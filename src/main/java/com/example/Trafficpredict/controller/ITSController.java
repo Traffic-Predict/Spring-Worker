@@ -14,7 +14,7 @@ public class ITSController {
     @Autowired
     private ITSService ITSService;
 
-    @PostMapping("/main")
+/*    @PostMapping("/main")
     public ResponseEntity<?> handleTrafficData(@RequestBody ITSRequest request) {
         try {
             ITSService.callApi(request); // 데이터 처리 및 저장
@@ -22,5 +22,5 @@ public class ITSController {
         } catch (Exception e) {
             return ResponseEntity.internalServerError().body("API 요청 실패: " + e.getMessage());
         }
-    }
+    }*/
 }

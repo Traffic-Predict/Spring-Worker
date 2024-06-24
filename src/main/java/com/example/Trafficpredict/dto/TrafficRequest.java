@@ -15,5 +15,5 @@ public class TrafficRequest {
     private Double minY;
     private Double maxY;
     @Builder.Default
-    private Integer mapLevel = 8;
+    private Integer zoom = 1;
 }

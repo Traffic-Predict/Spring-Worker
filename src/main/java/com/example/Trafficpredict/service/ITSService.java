@@ -7,6 +7,7 @@ import com.example.Trafficpredict.dto.ITSResponse;
 import com.example.Trafficpredict.dto.TrafficResponse;
 import com.example.Trafficpredict.model.TrafficData;
 import com.example.Trafficpredict.repository.TrafficDataRepository;
+
 import com.mysql.cj.protocol.Resultset;
 import lombok.extern.slf4j.Slf4j;
 import okhttp3.*;
@@ -92,7 +93,7 @@ public class ITSService {
             callApi(request);
             log.info("Scheduled API call executed successfully.");
             updateCache();
-            processTrafficData();
+            //processTrafficData();
             cleanOldData();
 
         } catch (Exception e) {
@@ -122,7 +123,7 @@ public class ITSService {
 
                 String roadRank = getRoadRankByLinkId(conn, linkId);
 
-                if (!roadRank.matches("101|102|103|104")) {
+                if (!roadRank.matches("101|102|103|104|105")) {
                     continue;
                 }
 
@@ -227,6 +228,7 @@ public class ITSService {
             case "102" -> speed <= 30 ? 3 : speed <= 60 ? 2 : 1;
             case "103" -> speed <= 20 ? 3 : speed <= 40 ? 2 : 1;
             case "104" -> speed <= 15 ? 3 : speed <= 30 ? 2 : 1;
+            case "105" -> speed <= 30 ? 3 : speed <= 60 ? 2 : 1;
             default -> 0;
         };
     }

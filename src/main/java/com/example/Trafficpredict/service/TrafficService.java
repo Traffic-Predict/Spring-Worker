@@ -41,7 +41,7 @@ public class TrafficService {
                 CachedTrafficData cachedData = (CachedTrafficData) value;
                 if (isInBounds(cachedData, request.getMinX(), request.getMaxX(), request.getMinY(), request.getMaxY())) {
                     TrafficResponse data = convertToTrafficResponse(cachedData);
-                    if(request.getMapLevel() >= 8 && data.getRoadRank().equals("104")){
+                    if(request.getZoom() < 13 && data.getRoadRank().equals("104")){
                         return;
                     }
                     responseList.add(data);

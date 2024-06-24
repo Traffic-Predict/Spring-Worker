@@ -28,4 +28,5 @@ public class TrafficController {
         log.info("/recent request processed successfully in thread: " + Thread.currentThread().getName());
         return ResponseEntity.ok(wrappedResponse);
     }
+
 }
